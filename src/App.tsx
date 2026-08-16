@@ -429,7 +429,6 @@ export default function App() {
         currentUser={currentUser}
         onOpenLoginModal={() => setIsAuthModalOpen(true)}
         onLogoutUser={handleLogoutUser}
-        onLoadSampleData={handleLoadSampleData}
         isCloudSynced={true}
       />
 

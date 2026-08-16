@@ -26,7 +26,6 @@ interface NavbarProps {
   currentUser?: UserProfile | null;
   onOpenLoginModal?: () => void;
   onLogoutUser?: () => void;
-  onLoadSampleData?: () => void;
   isCloudSynced?: boolean;
 }
 
@@ -38,7 +37,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   currentUser,
   onOpenLoginModal,
   onLogoutUser,
-  onLoadSampleData,
   isCloudSynced = true,
 }) => {
   const isAdmin = currentUser?.isAdmin || false;
@@ -203,19 +201,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
               )
             )}
-
-            {onLoadSampleData && (
-              <button
-                onClick={onLoadSampleData}
-                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#ffffff] hover:bg-[#f4efe6] text-[#334155] text-xs font-medium uppercase tracking-wider rounded-full border border-[#e3d7c5] transition shadow-xs"
-                title="Populate with sample demo records"
-              >
-                <span>Sample Data</span>
-              </button>
-            )}
           </div>
         </div>
-
+        
         {/* Mobile Navigation bar */}
         <div className="flex lg:hidden overflow-x-auto py-2 gap-1.5 border-t border-[#e3d7c5] text-xs scrollbar-none">
           <button
