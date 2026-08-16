@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "entities": {
+    "budgets": {
+      "title": "BudgetItem",
+      "description": "Budget allocations by department and category",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "category": { "type": "string" },
+        "allocated": { "type": "number" },
+        "spent": { "type": "number" },
+        "buffer": { "type": "number" },
+        "leadName": { "type": "string" },
+        "leadContact": { "type": "string" },
+        "department": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "category", "allocated"]
+    },
+    "expenses": {
+      "title": "ExpenseItem",
+      "description": "Reimbursement claims, expenses, and receipt verifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string" },
+        "vendor": { "type": "string" },
+        "status": { "type": "string" },
+        "claimedBy": { "type": "string" },
+        "claimedByRole": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "notes": { "type": "string" },
+        "receiptUrl": { "type": "string" },
+        "auditNote": { "type": "string" }
+      },
+      "required": ["id", "title", "amount", "category", "claimedBy"]
+    },
+    "schedules": {
+      "title": "ScheduleItem",
+      "description": "Event timeline, itinerary, and department budget linkage",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "day": { "type": "string" },
+        "time": { "type": "string" },
+        "title": { "type": "string" },
+        "venue": { "type": "string" },
+        "coordinator": { "type": "string" },
+        "category": { "type": "string" },
+        "status": { "type": "string" },
+        "budgetAllocation": { "type": "number" }
+      },
+      "required": ["id", "day", "time", "title"]
+    },
+    "incidents": {
+      "title": "IncidentNote",
+      "description": "Glitches, failure logs, and corrective action resolutions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "severity": { "type": "string" },
+        "category": { "type": "string" },
+        "day": { "type": "string" },
+        "location": { "type": "string" },
+        "reportedBy": { "type": "string" },
+        "description": { "type": "string" },
+        "correctiveAction": { "type": "string" },
+        "financialImpact": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "title", "severity", "reportedBy", "description"]
+    }
+  }
+}

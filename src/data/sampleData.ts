@@ -1,0 +1,283 @@
+import { BudgetItem, ExpenseItem, ItineraryItem, IncidentNote } from '../types/techastra';
+import { generateSampleReceiptSvg } from '../utils/receiptGenerator';
+
+// Blank initial datasets for TechAstra clean deployment
+export const initialBudgets: BudgetItem[] = [
+  {
+    id: 'b-1',
+    category: 'Hackathon & Contests',
+    allocatedAmount: 0,
+    description: 'Cash prizes, judge stipends, compute credits & problem statement kits',
+    leadPerson: 'Committee Lead',
+  },
+  {
+    id: 'b-2',
+    category: 'Stage, AV & Auditorium',
+    allocatedAmount: 0,
+    description: 'LED wall rental, line array sound systems, stage lighting & audio equipment',
+    leadPerson: 'Committee Lead',
+  },
+  {
+    id: 'b-3',
+    category: 'Food & Catering',
+    allocatedAmount: 0,
+    description: 'VIP speaker lunches, hackathon midnight snacks, volunteer meals & water',
+    leadPerson: 'Committee Lead',
+  },
+  {
+    id: 'b-4',
+    category: 'Swag, Trophies & Kits',
+    allocatedAmount: 0,
+    description: 'Custom hoodies, metal trophies, delegate badges & lanyards',
+    leadPerson: 'Committee Lead',
+  },
+  {
+    id: 'b-5',
+    category: 'Workshops & Tech Equipment',
+    allocatedAmount: 0,
+    description: 'Robotics sensor kits, IoT microcontrollers, VR rentals & lab equipment',
+    leadPerson: 'Committee Lead',
+  },
+  {
+    id: 'b-6',
+    category: 'Marketing & Banners',
+    allocatedAmount: 0,
+    description: 'Acrylic entrance arch, campus standees, flex banners & posters',
+    leadPerson: 'Committee Lead',
+  },
+  {
+    id: 'b-7',
+    category: 'Logistics & Travel',
+    allocatedAmount: 0,
+    description: 'Inter-city travel, cabs for speakers, local freight & fuel',
+    leadPerson: 'Committee Lead',
+  },
+  {
+    id: 'b-8',
+    category: 'Miscellaneous',
+    allocatedAmount: 0,
+    description: 'Unplanned operational buffers and petty cash expenses',
+    leadPerson: 'Committee Lead',
+  },
+];
+
+export const initialExpenses: ExpenseItem[] = [];
+
+export const initialItinerary: ItineraryItem[] = [];
+
+export const initialIncidents: IncidentNote[] = [];
+
+// Optional sample template data if user clicks "Load Sample Data" in settings
+export const sampleBudgets: BudgetItem[] = [
+  {
+    id: 'b-1',
+    category: 'Hackathon & Contests',
+    allocatedAmount: 150000,
+    description: 'Cash prizes, judge stipends, compute credits & problem statement kits',
+    leadPerson: 'Dr. Rahul Sharma (Faculty Lead)',
+  },
+  {
+    id: 'b-2',
+    category: 'Stage, AV & Auditorium',
+    allocatedAmount: 120000,
+    description: 'LED wall rental, line array sound systems, stage lighting & audio',
+    leadPerson: 'Priya V. (Event Head)',
+  },
+  {
+    id: 'b-3',
+    category: 'Food & Catering',
+    allocatedAmount: 90000,
+    description: 'VIP speaker lunches, hackathon midnight meals & volunteer refreshments',
+    leadPerson: 'Anand Kumar (Hospitality Head)',
+  },
+  {
+    id: 'b-4',
+    category: 'Swag, Trophies & Kits',
+    allocatedAmount: 65000,
+    description: 'Custom TechAstra hoodies, metal trophies & delegate badges',
+    leadPerson: 'Kavita Roy (Design Lead)',
+  },
+  {
+    id: 'b-5',
+    category: 'Workshops & Tech Equipment',
+    allocatedAmount: 50000,
+    description: 'Robotics sensor kits, microcontrollers & soldering stations',
+    leadPerson: 'Siddharth M. (Tech Lead)',
+  },
+  {
+    id: 'b-6',
+    category: 'Marketing & Banners',
+    allocatedAmount: 40000,
+    description: 'Main entrance arch, campus standees & vinyl printing',
+    leadPerson: 'Megha Nair (Media Head)',
+  },
+  {
+    id: 'b-7',
+    category: 'Logistics & Travel',
+    allocatedAmount: 35000,
+    description: 'Inter-city cabs for keynote speakers & diesel generator fuel',
+    leadPerson: 'Vikram Singh (Operations)',
+  },
+];
+
+export const sampleExpenses: ExpenseItem[] = [
+  {
+    id: 'exp-101',
+    title: 'Audium Sound Systems LED Wall Advance',
+    category: 'Stage, AV & Auditorium',
+    amount: 45000,
+    vendor: 'Audium Pro Systems Pvt Ltd',
+    date: '2026-10-21',
+    claimedBy: 'Priya V.',
+    claimedByRole: 'Event Lead',
+    paymentMethod: 'Bank Transfer',
+    receiptUrl: generateSampleReceiptSvg('Audium Pro Systems', 45000, '2026-10-21', [
+      { name: '4K Outdoor LED Wall Rental', qty: 1, price: 35000 },
+      { name: 'Dual Subwoofer Line Array', qty: 2, price: 5000 },
+    ]),
+    notes: 'Advance 50% deposit paid for Main Stage setup. Tax invoice attached.',
+    status: 'Treasurer Approved',
+    treasurerComment: 'Verified with contract #TS-2026-88. Payment authorized.',
+    aiVerification: {
+      detectedVendor: 'Audium Pro Systems',
+      detectedAmount: 45000,
+      detectedDate: '2026-10-21',
+      detectedItems: ['4K Outdoor LED Wall Rental', 'Dual Subwoofer Line Array'],
+      legibleReceipt: true,
+      amountMatchesClaim: true,
+      autoApprovalScore: 98,
+      decision: 'AUTO_APPROVED',
+      confidence: 0.98,
+      policyNotes: [
+        'Vendor matches registered Stage/AV supplier',
+        'Amount exactly matches claimed value ₹45,000',
+        'Category budget allocation remaining: ₹75,000',
+      ],
+      analyzedAt: '2026-10-21T10:15:00Z',
+    },
+    createdAt: '2026-10-21T10:00:00Z',
+  },
+  {
+    id: 'exp-102',
+    title: 'Hackathon Midnight Pizza & Coffee Boost',
+    category: 'Food & Catering',
+    amount: 18500,
+    vendor: 'Dominos & Brew Coffee Express',
+    date: '2026-10-24',
+    claimedBy: 'Anand Kumar',
+    claimedByRole: 'Hospitality Lead',
+    paymentMethod: 'UPI',
+    receiptUrl: generateSampleReceiptSvg('Dominos & Brew Express', 18500, '2026-10-24', [
+      { name: 'Bulk Pizza Boxes (Large)', qty: 80, price: 200 },
+      { name: 'Thermal Coffee Cans (20L)', qty: 5, price: 500 },
+    ]),
+    notes: 'Midnight meal for 250 hackathon participants working overnight.',
+    status: 'Treasurer Approved',
+    treasurerComment: 'Reviewed and approved by Treasurer. Funds allocated from Food & Catering budget.',
+    aiVerification: {
+      detectedVendor: 'Dominos & Brew Express',
+      detectedAmount: 18500,
+      detectedDate: '2026-10-24',
+      detectedItems: ['Bulk Pizza Boxes (Large)', 'Thermal Coffee Cans'],
+      legibleReceipt: true,
+      amountMatchesClaim: true,
+      autoApprovalScore: 95,
+      decision: 'AUTO_APPROVED',
+      confidence: 0.96,
+      policyNotes: [
+        'Legible itemized GST receipt verified',
+        'Within Food & Catering remaining limit (₹71,500)',
+        'Approved via Automated Reimbursement Pipeline',
+      ],
+      analyzedAt: '2026-10-24T23:45:00Z',
+    },
+    createdAt: '2026-10-24T23:30:00Z',
+  },
+  {
+    id: 'exp-103',
+    title: 'Custom Metal Trophies & Laser Badges',
+    category: 'Swag, Trophies & Kits',
+    amount: 28500,
+    vendor: 'Apex Awards & Engraving',
+    date: '2026-10-22',
+    claimedBy: 'Kavita Roy',
+    claimedByRole: 'Design Lead',
+    paymentMethod: 'Reimbursement Claim',
+    receiptUrl: generateSampleReceiptSvg('Apex Awards', 28500, '2026-10-22', [
+      { name: '1st Place TechAstra Trophy', qty: 5, price: 3500 },
+      { name: 'Acrylic Lanyard Badges', qty: 1000, price: 11 },
+    ]),
+    notes: 'Paid out-of-pocket by Kavita. Requesting reimbursement via GPay/Bank.',
+    status: 'Pending Approval',
+    treasurerComment: '',
+    aiVerification: {
+      detectedVendor: 'Apex Awards',
+      detectedAmount: 28500,
+      detectedDate: '2026-10-22',
+      detectedItems: ['1st Place TechAstra Trophy', 'Acrylic Lanyard Badges'],
+      legibleReceipt: true,
+      amountMatchesClaim: true,
+      autoApprovalScore: 88,
+      decision: 'REQUIRES_TREASURER_REVIEW',
+      confidence: 0.91,
+      policyNotes: [
+        'Reimbursement claim > ₹20,000 requires Treasurer sign-off',
+        'Valid tax invoice detected',
+        'Category balance sufficient (₹36,500 remaining)',
+      ],
+      analyzedAt: '2026-10-22T14:10:00Z',
+    },
+    createdAt: '2026-10-22T14:00:00Z',
+  },
+];
+
+export const sampleItinerary: ItineraryItem[] = [
+  {
+    id: 'itin-1',
+    title: 'TechAstra 2026 Inauguration & Keynote',
+    day: 'Day 1',
+    startTime: '09:30 AM',
+    endTime: '11:30 AM',
+    location: 'Main Auditorium (Astra Hall)',
+    category: 'Keynote',
+    speakerOrHost: 'Dr. Aris Thorne (Chief AI Scientist)',
+    linkedCategory: 'Stage, AV & Auditorium',
+    allocatedBudget: 45000,
+    description: 'Grand inauguration ceremony, lamp lighting, and keynote address on Generative Intelligence.',
+    coordinatorContact: 'Priya V. (+91 98765 43210)',
+    isHighlight: true,
+  },
+  {
+    id: 'itin-2',
+    title: 'AstraHack: 24-Hour National Hackathon Launch',
+    day: 'Day 1',
+    startTime: '12:00 PM',
+    endTime: '12:00 PM (Day 2)',
+    location: 'Central Library & Innovation Hub',
+    category: 'Hackathon',
+    speakerOrHost: 'TechAstra Advisory Board',
+    linkedCategory: 'Hackathon & Contests',
+    allocatedBudget: 150000,
+    description: 'Problem statements released across 4 tracks: AI for Good, Web3, IoT & Robotics.',
+    coordinatorContact: 'Dr. Rahul Sharma (+91 98123 45678)',
+    isHighlight: true,
+  },
+];
+
+export const sampleIncidents: IncidentNote[] = [
+  {
+    id: 'inc-201',
+    title: 'Main Auditorium AV Signal Cut during Inauguration',
+    severity: 'major',
+    category: 'Technical/AV',
+    timestamp: '2026-10-24 10:15 AM',
+    day: 'Day 1',
+    location: 'Main Auditorium Stage',
+    reportedBy: 'Priya V.',
+    description: 'The central HDMI matrix switch overheated, causing display drop for 4 minutes.',
+    status: 'resolved',
+    correctiveAction: 'Swapped to backup SDI cable direct pipeline and installed exhaust cooling fan.',
+    financialImpact: 0,
+    createdAt: '2026-10-24T10:20:00Z',
+  },
+];

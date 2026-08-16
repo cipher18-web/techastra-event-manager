@@ -1,0 +1,6 @@
+{
+  "name": "TechAstra Event Manager",
+  "description": "Expense tracking, event itinerary, treasurer reimbursement approvals with AI receipt OCR, real-time budget analytics, and incident notes log for TechAstra.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

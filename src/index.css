@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: #f7f3eb;
+    color: #1e293b;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@theme {
+  /* Editorial Luxury Soft Cream Palette */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Cream Canvas */
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #f7f3eb;
+  --color-cream-200: #f0e7d8;
+  --color-cream-300: #e3d3bd;
+  --color-cream-400: #d4bf9f;
+  --color-cream-800: #2c3848;
+  --color-cream-900: #1a2533;
+
+  /* Slate Blue */
+  --color-slate-950: #0f1828;
+  --color-slate-900: #1a273b;
+  --color-slate-800: #2a3c58;
+  --color-slate-700: #3c5478;
+  --color-slate-600: #526f9a;
+  --color-slate-500: #708cb8;
+  --color-slate-400: #93aadb;
+  --color-slate-300: #c2d1ed;
+  --color-slate-200: #e2eaf8;
+  --color-slate-100: #f1f5fd;
+
+  /* Sage Green */
+  --color-sage-950: #0d1a15;
+  --color-sage-900: #182c23;
+  --color-sage-800: #274438;
+  --color-sage-700: #3a604f;
+  --color-sage-600: #51806b;
+  --color-sage-500: #6ea38a;
+  --color-sage-400: #93c4ac;
+  --color-sage-300: #bee1d0;
+  --color-sage-200: #e0f2e8;
+  --color-sage-100: #f3f9f5;
+
+  /* Charcoal Text */
+  --color-charcoal-900: #0f172a;
+  --color-charcoal-800: #1e293b;
+  --color-charcoal-700: #334155;
+  --color-charcoal-600: #475569;
+  --color-charcoal-500: #64748b;
+
+  /* Hairline Borders */
+  --color-hairline: #e3d7c5;
+}
+
+/* Custom scrollbars & utilities for Italian editorial feel */
+.editorial-border {
+  border: 1px solid #e3d7c5;
+}
+
+.editorial-card {
+  background-color: #ffffff;
+  border: 1px solid #e3d7c5;
+  box-shadow: 0 4px 20px -2px rgba(44, 35, 20, 0.04);
+}
+
+.pill-button {
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
